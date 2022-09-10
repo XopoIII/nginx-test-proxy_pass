@@ -1,0 +1,6 @@
+*
+!.gitignore
+!default.nginx
+!default.conf
+!stages.nginx
+!stages.conf

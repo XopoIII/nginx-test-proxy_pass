@@ -1,0 +1,19 @@
+# docker compose down && docker compose up -d --build && docker compose logs -f
+version: '3.9'
+services:
+  nginx:
+    container_name: nginx
+    # https://github.com/nginx/nginx/commits/master
+    # image: nginx:1.23.1
+    build: ./docker/nginx/
+    volumes:
+      - ./docker/nginx/etc:/etc/nginx
+    ports:
+      - 1234:80
+    restart: always
+    networks:
+      - backend-network
+networks:
+  backend-network:
+    external: true
+    name: "kttc_bridge"
